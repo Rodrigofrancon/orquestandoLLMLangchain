@@ -9,7 +9,7 @@ def main():
         verbose=True
     )
 
-    pergunta = 'Faça uma análise da imagem image.png'
+    pergunta = 'Gostaria que você me explicasse como funcionan os desvios condicionais'
     resposta = orquestador.invoke({'input': pergunta })
     print(resposta)
 

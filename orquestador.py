@@ -8,6 +8,7 @@ from langchain import hub
 from langchain.agents import create_react_agent
 from langchain.agents import Tool
 from ferramenta_analisadora_imagem import FerramentaAnalisadoraImagem 
+from ferramenta_explicadora import FerramentaExplicadora
 
 class AgenteOrquestador:
     def __init__(self):
@@ -17,6 +18,7 @@ class AgenteOrquestador:
         )
 
         ferramente_analisador_imagem = FerramentaAnalisadoraImagem()
+        ferramenta_explicadora = FerramentaExplicadora()
 
         self.tools = [
             Tool(
@@ -24,6 +26,12 @@ class AgenteOrquestador:
                 func = ferramente_analisador_imagem.run,
                 description = ferramente_analisador_imagem.description,
                 return_direct = ferramente_analisador_imagem.return_direct
+            ),
+             Tool(
+                name = ferramenta_explicadora.name,
+                func = ferramenta_explicadora.run,
+                description = ferramenta_explicadora.description,
+                return_direct = ferramenta_explicadora.return_direct
             )
         ]
 
